@@ -1,4 +1,6 @@
 # pragma once
+#include <utility>
+
 class P2DVec {
 private:
 	short x = 0, y = 0;
@@ -14,4 +16,9 @@ public:
 
 	void set_y(short x) { this->y = y; }
 	
+	friend bool operator> (const P2DVec& d1, const P2DVec& d2);
 };
+
+bool operator>(const P2DVec& d1, const P2DVec& d2) {
+	return std::pair(d1.x, d1.y) < std::pair(d2.x, d2.y);
+}
