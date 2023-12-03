@@ -2,23 +2,23 @@
 #include <algorithm>
 
 void Snake::grow() {
-	this->body.push_back(P2DVec(
-		this->body.end()->get_x(),
-		this->body.end()->get_y()
+	this->body.push_back(sf::Vector2i(
+		this->body.end()->x,
+		this->body.end()->y
 	));
 }
 
 void Snake::move() {
-	int8_t dx = this->direction.get_x();
-	int8_t dy = this->direction.get_y();
+	int8_t dx = this->direction.x;
+	int8_t dy = this->direction.y;
 
 	// body movement
 	for (auto it = ++this->body.begin(); it != this->body.end(); it++) {
-		it->set_x(prev(it)->get_x());
-		it->set_y(prev(it)->get_y());
+		it->x = (prev(it)->x);
+		it->y = (prev(it)->y);
 	}
 
 	// head movement
-	this->head()->set_x(this->head()->get_x() + dx);
-	this->head()->set_y(this->head()->get_y() + dy);
+	this->head()->x = (this->head()->x + dx);
+	this->head()->y = (this->head()->y + dy);
 }

@@ -1,13 +1,13 @@
 # pragma once 
-#include "Personal2DVector.h".
+#include <SFML/Graphics.hpp>
 #include <list>
 
 class Snake {
 private:
-	std::list<P2DVec> body;
-	P2DVec direction;
+	std::list<sf::Vector2i> body;
+	sf::Vector2i direction;
 public:
-	std::list<P2DVec>::iterator head() { return this->body.begin(); }
+	std::list<sf::Vector2i>::iterator head() { return this->body.begin(); }
 
 	void grow(void);
 	
