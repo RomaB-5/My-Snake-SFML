@@ -3,5 +3,10 @@
 #include "Personal2DVector.h"
 
 class FruitGenerator {
-	set<P2DVec> freeCells;
+private:
+	std::set<P2DVec> freeCells;
+public:
+	// initialize the set with n*m-1
+	FruitGenerator(P2DVec head);
+
 };

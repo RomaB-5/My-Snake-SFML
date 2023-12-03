@@ -1,5 +1,11 @@
 #include "../../include/MyLibrary/Snake.h"
 #include <algorithm>
+#include <random>
+
+Snake::Snake(int n, int m) {
+	srand(time(0));
+	this->body.push_back(P2DVec(rand() % n, rand() % m));
+}
 
 void Snake::grow() {
 	this->body.push_back(P2DVec(
