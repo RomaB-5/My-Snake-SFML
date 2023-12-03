@@ -12,6 +12,14 @@ FruitGenerator::FruitGenerator(P2DVec head, int n, int m) {
 	this->freeCells.erase(head);
 }
 
+void FruitGenerator::addCell(P2DVec cell) {
+	this->freeCells.insert(cell);
+}
+
+void FruitGenerator::removeCell(P2DVec cell) {
+	this->freeCells.erase(cell);
+}
+
 P2DVec FruitGenerator::generate() {
 	srand(time(0));
 

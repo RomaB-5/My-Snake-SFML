@@ -17,7 +17,7 @@ void Game::draw(sf::RenderWindow& window) {
 }
 
 void Game::update() {
-	this->snake->move();
+	this->snake->move(this->fg);
 }
 
 void Game::setSnakeDirection(int8_t dx, int8_t dy) {

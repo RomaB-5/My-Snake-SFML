@@ -19,10 +19,11 @@ void Snake::grow() {
 	));
 }
 
-void Snake::move() {
+void Snake::move(FruitGenerator* fg) {
 	int8_t dx = this->direction.get_x();
 	int8_t dy = this->direction.get_y();
 
+	fg->removeCell(*prev(body.end()));
 	// body movement
 	for (auto it = next(this->body.begin()); it != this->body.end(); it++) {
 		it->set_x(prev(it)->get_x());
@@ -32,6 +33,7 @@ void Snake::move() {
 	// head movement
 	this->head()->set_x(this->head()->get_x() + dx);
 	this->head()->set_y(this->head()->get_y() + dy);
+	fg->addCell(*body.begin());
 }
 
 void Snake::draw(sf::RenderWindow &window, short n, short m) {

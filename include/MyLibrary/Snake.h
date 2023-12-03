@@ -2,6 +2,7 @@
 #include "Personal2DVector.h"
 #include <list>
 #include "SFML/Graphics.hpp"
+#include "FruitGenerator.h"
 
 class Snake {
 private:
@@ -17,7 +18,7 @@ public:
 
 	void grow(void);
 	
-	void move(void);
+	void move(FruitGenerator*);
 
 	void draw(sf::RenderWindow&, short, short);
 };
