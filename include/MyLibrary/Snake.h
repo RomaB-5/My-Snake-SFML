@@ -1,12 +1,11 @@
 # pragma once 
-#include "Tile.h".
-#include <list>
+#include "Personal2DVector.h".
+#include <ist>
 
 class Snake {
 private:
-	list<Tile> body;
-
+	list<P2DVec> body;
 public:
-	list<Tile>::iterator head() { return this.body.begin(); }
+	list<P2DVec>::iterator head() { return this.body.begin(); }
 	
 };

@@ -1,5 +1,5 @@
 # pragma once
-class Tile {
+class P2DVec {
 private:
 	short x = 0, y = 0;
 public:
