@@ -4,7 +4,9 @@
 
 int main()
 {   
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!", sf::Style::Default);
+    window.setVerticalSyncEnabled(true);
+
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
@@ -16,9 +18,6 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            sf::Time elapsed1 = clock.getElapsedTime();
-            std::cout << elapsed1.asSeconds() << std::endl;
-            clock.restart();
         }
 
         window.clear();
