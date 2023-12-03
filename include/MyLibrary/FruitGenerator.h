@@ -1,4 +1,5 @@
-# pragma once
+#pragma once
+
 #include <set>
 #include "Personal2DVector.h"
 
