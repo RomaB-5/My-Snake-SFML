@@ -11,3 +11,7 @@ Game::~Game() {
 	delete snake;
 	delete fg;
 }
+
+void Game::draw(sf::RenderWindow& window) {
+	this->snake->draw(window, this->dim->get_x(), this->dim->get_y());
+}

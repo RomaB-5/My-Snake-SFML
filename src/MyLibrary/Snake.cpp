@@ -1,4 +1,5 @@
 #include "../../include/MyLibrary/Snake.h"
+#include <SFML/Graphics.hpp>
 #include <algorithm>
 #include <random>
 
@@ -27,4 +28,18 @@ void Snake::move() {
 	// head movement
 	this->head()->set_x(this->head()->get_x() + dx);
 	this->head()->set_y(this->head()->get_y() + dy);
+}
+
+void Snake::draw(sf::RenderWindow &window, short n, short m) {
+	unsigned int w = window.getSize().x; //width
+	unsigned int h = window.getSize().y; //height
+	unsigned int cellHeight = h / n;
+	unsigned int cellWidth = w / m;
+
+	for (auto i : this->body) {
+		sf::RectangleShape rectangle(sf::Vector2f(cellWidth, cellHeight));
+		rectangle.setFillColor(sf::Color(0, 120, 40));
+		rectangle.setPosition(cellWidth * i.get_x(), cellHeight * i.get_y());
+		window.draw(rectangle);
+	}
 }

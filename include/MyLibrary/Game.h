@@ -3,6 +3,7 @@
 #include "Snake.h"
 #include "FruitGenerator.h"
 #include "Personal2DVector.h"
+#include <SFML/Graphics.hpp>
 #include <random>
 
 class Game {
@@ -14,6 +15,6 @@ public:
 	Game(int n = 10, int m = 10);
 	~Game();
 
-	void draw();
+	void draw(sf::RenderWindow&);
 	void update();
 };

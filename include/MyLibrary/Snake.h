@@ -1,6 +1,7 @@
 #pragma once 
 #include "Personal2DVector.h"
 #include <list>
+#include "SFML/Graphics.hpp"
 
 class Snake {
 private:
@@ -14,4 +15,6 @@ public:
 	void grow(void);
 	
 	void move(void);
+
+	void draw(sf::RenderWindow&, short, short);
 };
