@@ -4,8 +4,11 @@
 
 class Snake {
 private:
-	list<P2DVec> body;
+	std::list<P2DVec> body;
+	P2DVec direction(0, 0);
 public:
-	list<P2DVec>::iterator head() { return this.body.begin(); }
+	std::list<P2DVec>::iterator head() { return this->body.begin(); }
+
+	void grow(void);
 	
 };
