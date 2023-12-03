@@ -24,7 +24,7 @@ void Snake::move() {
 	int8_t dy = this->direction.get_y();
 
 	// body movement
-	for (auto it = ++this->body.begin(); it != this->body.end(); it++) {
+	for (auto it = next(this->body.begin()); it != this->body.end(); it++) {
 		it->set_x(prev(it)->get_x());
 		it->set_y(prev(it)->get_y());
 	}

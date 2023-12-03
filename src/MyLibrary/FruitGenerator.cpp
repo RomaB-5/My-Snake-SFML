@@ -11,3 +11,17 @@ FruitGenerator::FruitGenerator(P2DVec head, int n, int m) {
 	
 	this->freeCells.erase(head);
 }
+
+P2DVec FruitGenerator::generate() {
+	srand(time(0));
+
+	short index = rand() % this->freeCells.size();
+	auto it = this->freeCells.begin();
+
+	advance(it, index);
+	auto res = *it;
+	freeCells.erase(*it);
+
+	return res;
+
+}

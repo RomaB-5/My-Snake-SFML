@@ -15,3 +15,11 @@ Game::~Game() {
 void Game::draw(sf::RenderWindow& window) {
 	this->snake->draw(window, this->dim->get_x(), this->dim->get_y());
 }
+
+void Game::update() {
+	this->snake->move();
+}
+
+void Game::setSnakeDirection(int8_t dx, int8_t dy) {
+	this->snake->setDirection(dx, dy);
+}

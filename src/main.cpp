@@ -5,7 +5,7 @@
 
 int main()
 {   
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!", sf::Style::Default);
+    sf::RenderWindow window(sf::VideoMode(500, 500), "SFML works!", sf::Style::Default);
     window.setVerticalSyncEnabled(true);
 
     Game game;
@@ -21,7 +21,26 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            {
+                game.setSnakeDirection(-1, 0);
+                game.update();
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            {
+                game.setSnakeDirection(1, 0);
+                game.update();
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            {
+                game.setSnakeDirection(0, -1);
+                game.update();
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+            {
+                game.setSnakeDirection(0, 1);
+                game.update();
+            }
         }
 
         window.clear();

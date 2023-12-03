@@ -15,6 +15,7 @@ public:
 	Game(int n = 10, int m = 10);
 	~Game();
 
+	void setSnakeDirection(int8_t dx, int8_t dy);
 	void draw(sf::RenderWindow&);
 	void update();
 };
