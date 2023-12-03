@@ -3,7 +3,8 @@ class P2DVec {
 private:
 	short x = 0, y = 0;
 public:
-	P2DVec(short x, short y) { this->x = x; this->y = y;}
+	P2DVec(){}
+	P2DVec(short x1, short y1) { this->x = x1; this->y = y1;}
 
 	short get_x() { return this->x; }
 
