@@ -8,6 +8,10 @@ Snake::Snake(int n, int m) {
 	this->body.push_back(P2DVec(rand() % n, rand() % m));
 }
 
+void Snake::setDirection(int8_t i, int8_t j) {
+	this->direction = P2DVec(i, j);
+}
+
 void Snake::grow() {
 	this->body.push_back(P2DVec(
 		this->body.end()->get_x(),
