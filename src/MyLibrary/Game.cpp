@@ -7,5 +7,7 @@ Game::Game(int n = 10, int m = 10) {
 }
 
 Game::~Game() {
-
+	delete dim;
+	delete snake;
+	delete fg;
 }
