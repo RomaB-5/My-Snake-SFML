@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <algorithm>
 #include <random>
+#include <ctime>
 
 Snake::Snake(int n, int m) {
 	srand(time(0));

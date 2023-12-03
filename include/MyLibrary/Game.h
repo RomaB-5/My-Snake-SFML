@@ -5,6 +5,7 @@
 #include "Personal2DVector.h"
 #include <SFML/Graphics.hpp>
 #include <random>
+#include <ctime>
 
 class Game {
 	Snake *snake;
