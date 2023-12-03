@@ -20,5 +20,5 @@ void Snake::move() {
 
 	// head movement
 	this->head()->set_x(this->head()->get_x() + dx);
-	this->head()->set_y(this->head()->get_y() + dx);
+	this->head()->set_y(this->head()->get_y() + dy);
 }
