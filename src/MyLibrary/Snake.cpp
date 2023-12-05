@@ -1,5 +1,6 @@
 #include "../../include/MyLibrary/Snake.h"
 #include <algorithm>
+#include "../../include/MyLibrary/TextureManager.h"
 
 void Snake::grow() {
 	this->body.push_back(sf::Vector2i(
@@ -23,10 +24,16 @@ void Snake::move() {
 	this->head()->y = (this->head()->y + dy);
 }
 
-void Snake::draw(sf::RenderWindow&) {
+void Snake::draw(sf::RenderWindow& window) {
+	// should be loaded in Game constructor ?
+	TextureManager& textureManager = TextureManager::getInstance();
+	textureManager.loadTexture("snake-green", "assets/textures/snake-green.png");
 
 	for (auto cell : body) {
-		
+		sf::Sprite sprite;
+		sprite.setTexture(textureManager.getTexture("snake-green"));
+		sprite.setOrigin(cell.x, cell.y);
+		window.draw(sprite);
 	}
 
 }
