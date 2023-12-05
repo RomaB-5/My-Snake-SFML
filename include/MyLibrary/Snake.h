@@ -17,5 +17,5 @@ public:
 	// than moves head in the (direction.x, direction.y) direction.
 	void move(void);
 
-	void draw(sf::RenderWindow);
+	void draw(sf::RenderWindow&);
 };

@@ -22,3 +22,11 @@ void Snake::move() {
 	this->head()->x = (this->head()->x + dx);
 	this->head()->y = (this->head()->y + dy);
 }
+
+void Snake::draw(sf::RenderWindow&) {
+
+	for (auto cell : body) {
+		
+	}
+
+}
