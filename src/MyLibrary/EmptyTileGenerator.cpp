@@ -23,3 +23,24 @@ void EmptyTileGenerator::pushNewTile(sf::Vector2u v) {
 void EmptyTileGenerator::pushNewTile(std::pair<uint16_t, uint16_t> p) {
 	this->EmptyTiles.insert(p);
 }
+
+bool EmptyTileGenerator::EraseTile(sf::Vector2u v) {
+	auto p = std::pair<uint16_t, uint16_t>(v.x, v.y);
+
+	if (this->EmptyTiles.find(p) == this->EmptyTiles.end()) {
+		return false;
+	}
+
+	this->EmptyTiles.erase(p);
+	return true;
+}
+
+bool EmptyTileGenerator::EraseTile(std::pair<uint16_t, uint16_t> p) {
+
+	if (this->EmptyTiles.find(p) == this->EmptyTiles.end()) {
+		return false;
+	}
+
+	this->EmptyTiles.erase(p);
+	return true;
+}
