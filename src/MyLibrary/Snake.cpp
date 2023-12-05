@@ -3,7 +3,7 @@
 #include "../../include/MyLibrary/TextureManager.h"
 
 Snake::Snake() {
-	// randomly generate the position of head when game starts.
+	// randomly generate the position of the head when game starts.
 }
 
 void Snake::grow() {
