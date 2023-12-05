@@ -15,3 +15,11 @@ std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
 
 	return res;
 }
+
+void EmptyTileGenerator::pushNewTile(sf::Vector2u v) {
+	this->EmptyTiles.insert(std::pair<uint16_t, uint16_t>(v.x, v.y));
+}
+
+void EmptyTileGenerator::pushNewTile(std::pair<uint16_t, uint16_t> p) {
+	this->EmptyTiles.insert(p);
+}
