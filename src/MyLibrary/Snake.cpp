@@ -24,7 +24,7 @@ void Snake::move() {
 	this->head()->y = (this->head()->y + dy);
 }
 
-void Snake::draw(sf::RenderWindow& window, uint16_t cellHeight, uint16_t cellWidth) {
+void Snake::draw(sf::RenderWindow& window, uint16_t n, uint16_t m) {
 	// should be loaded in Game constructor ?
 	TextureManager& textureManager = TextureManager::getInstance();
 	textureManager.loadTexture("snake-green", "assets/textures/snake-green.png");
@@ -32,7 +32,11 @@ void Snake::draw(sf::RenderWindow& window, uint16_t cellHeight, uint16_t cellWid
 	for (auto cell : body) {
 		sf::Sprite sprite;
 		sprite.setTexture(textureManager.getTexture("snake-green"));
-		sprite.setOrigin(cellWidth, cellHeight);
+		sprite.setPosition(cell.x / (1. * n) * window.getSize().x, cell.y / (1. * m) * window.getSize().y);
+		
+		auto xScale = sprite.getGlobalBounds().width / (window.getSize().x / n);
+		auto yScale = sprite.getGlobalBounds().height / (window.getSize().y / m);
+		sprite.setScale(xScale, yScale);
 		window.draw(sprite);
 	}
 
