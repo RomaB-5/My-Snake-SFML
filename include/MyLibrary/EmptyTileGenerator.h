@@ -1,6 +1,7 @@
 #pragma once
 #include <set>
 #include <utility>
+#include <SFML/Graphics.hpp>
 
 class EmptyTileGenerator {
 public:
@@ -8,6 +9,10 @@ public:
     static EmptyTileGenerator& getInstance();
 
     std::pair<int, int> getEmptyTile();
+
+    void pushNewTile(sf::Vector2u);
+    void pushNewTile(std::pair<uint16_t, uint16_t>);
+
 private:
     std::set<std::pair<int, int>> EmptyTiles;
 
