@@ -3,7 +3,9 @@
 #include "../../include/MyLibrary/TextureManager.h"
 
 Snake::Snake() {
-	// randomly generate the position of the head when game starts.
+	// randomly spawn the head on a field
+	std::pair<uint16_t, uint16_t> p = EmptyTileGenerator::getInstance().getEmptyTile();
+	this->body.push_back(sf::Vector2i(p.first, p.second));
 }
 
 void Snake::grow() {
