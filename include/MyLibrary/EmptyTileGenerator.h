@@ -7,6 +7,7 @@ public:
     // Singleton pattern to ensure a single instance of the manager
     static EmptyTileGenerator& getInstance();
 
+    std::pair<int, int> getEmptyTile();
 private:
     std::set<std::pair<int, int>> EmptyTiles;
 
