@@ -7,6 +7,13 @@ EmptyTileGenerator& EmptyTileGenerator::getInstance() {
 	return instance;
 }
 
+void EmptyTileGenerator::setField(uint16_t n, uint16_t m) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			this->EmptyTiles.insert(std::pair<uint16_t, uint16_t>(i,j));
+		}
+	}
+}
 std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
 
 	if (!EmptyTiles.size());

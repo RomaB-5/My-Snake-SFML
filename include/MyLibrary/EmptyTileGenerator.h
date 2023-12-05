@@ -16,7 +16,7 @@ public:
     bool EraseTile(sf::Vector2u);
     bool EraseTile(std::pair<uint16_t, uint16_t>);
 
-    //bool setField
+    void setField(uint16_t, uint16_t);
 
 private:
     std::set<std::pair<uint16_t, uint16_t>> EmptyTiles;
