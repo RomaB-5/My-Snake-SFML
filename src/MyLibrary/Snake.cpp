@@ -2,6 +2,10 @@
 #include <algorithm>
 #include "../../include/MyLibrary/TextureManager.h"
 
+Snake::Snake() {
+	// randomly generate the position of head when game starts.
+}
+
 void Snake::grow() {
 	this->body.push_back(sf::Vector2i(
 		this->body.end()->x,

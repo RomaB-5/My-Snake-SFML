@@ -8,6 +8,8 @@ private:
 	sf::Vector2i direction;
 
 public:
+	Snake();
+
 	std::list<sf::Vector2i>::iterator head() { return this->body.begin(); }
 
 	// increases snake size by one 
