@@ -2,6 +2,11 @@
 #include <random>
 #include <algorithm>
 
+EmptyTileGenerator& EmptyTileGenerator::getInstance() {
+	static EmptyTileGenerator instance;
+	return instance;
+}
+
 std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
 
 	if (!EmptyTiles.size());
