@@ -7,6 +7,7 @@ class Game {
 	uint8_t height = 10;
 	uint8_t width = 10;
 public:
+	Game();
 	sf::Vector2u getFieldSize();
 	void draw();
 	void update();

@@ -1,5 +1,9 @@
 #include "../../include/MyLibrary/Game.h"
 
+Game::Game() {
+
+}
+
 void Game::draw() {
 
 }
