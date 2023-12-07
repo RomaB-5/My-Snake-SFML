@@ -2,6 +2,19 @@
 
 Game::Game() {
 
+	// all tiles are accesable
+	EmptyTileGenerator &ETG = EmptyTileGenerator::getInstance();
+	ETG.setField(this->width, this->height);
+
+	// initializes snake by placing its head on a map
+	auto tile = ETG.getEmptyTile();
+	this->snake = new Snake();
+
+	// initializes froots
+	for (int i = 0; i < this->fruitNum; i++) {
+		this->fruits.insert(Fruit(ETG.getEmptyTile()));
+	}
+
 }
 
 void Game::draw() {
