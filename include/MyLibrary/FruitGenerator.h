@@ -3,5 +3,5 @@
 #include <SFML/Graphics/>
 
 class FruitGenerator {
-	srd::set<sf::Vector2i> s;
+	std::set<sf::Vector2i> s;
 };
