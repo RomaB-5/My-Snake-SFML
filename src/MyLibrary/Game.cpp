@@ -17,7 +17,7 @@ Game::Game() {
 
 }
 
-void Game::draw() {
+void Game::draw(sf::RenderWindow &window, int xCells, int yCells) {
 
 }
 

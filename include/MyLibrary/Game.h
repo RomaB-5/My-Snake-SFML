@@ -15,6 +15,6 @@ class Game {
 public:
 	Game();
 	sf::Vector2u getFieldSize();
-	void draw();
+	void draw(sf::RenderWindow& window, int xCells, int yCells);
 	void update();
 };
