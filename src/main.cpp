@@ -1,14 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "../include/MyLibrary/Game.h"
 
 int main()
 {   
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!", sf::Style::Default);
+    sf::RenderWindow window(sf::VideoMode(750, 750), "SFML works!", sf::Style::Default);
     window.setVerticalSyncEnabled(true);
 
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
+    Game game;
     while (window.isOpen())
     {
         sf::Event event;
@@ -20,7 +22,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        game.draw(window, game.getFieldSize().x, game.getFieldSize().y);
         window.display();
     }
 
