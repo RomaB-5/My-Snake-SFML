@@ -8,7 +8,8 @@ Fruit::Fruit(std::pair<int,int> p) {
 	this->setPosition(p);
 }
 
-void Fruit::draw(sf::RenderWindow window, int xCells, int yCells) {
+void Fruit::draw(sf::RenderWindow &window, int xCells, int yCells) {
+
 	sf::Sprite sprite;
 	sprite.setTexture(TextureManager::getInstance().getTexture("fruit"));
 
@@ -16,14 +17,14 @@ void Fruit::draw(sf::RenderWindow window, int xCells, int yCells) {
 	auto windowHeight = window.getSize().y;
 
 	sprite.setPosition(sf::Vector2f(
-		this->v.x * windowWidth / xCells, this->v.y * windowHeight / yCells
+		1. * this->v.x * windowWidth / xCells, 1. * this->v.y * windowHeight / yCells
 	));
 
 	auto currentWidth = sprite.getGlobalBounds().getSize().x;
 	auto currentHeight = sprite.getGlobalBounds().getSize().y;
 
-	auto scaleX = (windowWidth / xCells) / currentWidth;
-	auto scaleY = (windowHeight / yCells) / currentHeight;
+	auto scaleX = (1. * windowWidth / xCells) / currentWidth;
+	auto scaleY = (1. * windowHeight / yCells) / currentHeight;
 
 	sprite.setScale(scaleX, scaleY);
 

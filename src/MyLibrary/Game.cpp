@@ -2,6 +2,8 @@
 
 Game::Game() {
 
+	TextureManager::getInstance().loadTexture("fruit", "D:\\Університет\\SFML\\My-Snake-SFML\\assets\\textures\\snake-green.png");
+
 	// all tiles are accesable
 	EmptyTileGenerator &ETG = EmptyTileGenerator::getInstance();
 	ETG.setField(this->width, this->height);
@@ -18,7 +20,9 @@ Game::Game() {
 }
 
 void Game::draw(sf::RenderWindow &window, int xCells, int yCells) {
-
+	for (auto fruit : this->fruits) {
+		fruit.draw(window, xCells, yCells);
+	}
 }
 
 void Game::update() {
