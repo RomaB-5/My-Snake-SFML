@@ -16,6 +16,9 @@ void Fruit::draw(sf::RenderWindow &window, int xCells, int yCells) {
 	auto windowWidth = window.getSize().x;
 	auto windowHeight = window.getSize().y;
 
+	sf::FloatRect visibleArea(0, 0, windowWidth, windowHeight);
+	window.setView(sf::View(visibleArea));
+
 	sprite.setPosition(sf::Vector2f(
 		1. * this->v.x * windowWidth / xCells, 1. * this->v.y * windowHeight / yCells
 	));
