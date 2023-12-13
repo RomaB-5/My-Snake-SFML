@@ -2,7 +2,7 @@
 
 Game::Game() {
 
-	TextureManager::getInstance().loadTexture("fruit", "D:\\Університет\\SFML\\My-Snake-SFML\\assets\\textures\\snake-green.png");
+	TextureManager::getInstance().loadTexture("fruit", "D:\\Університет\\SFML\\My-Snake-SFML\\assets\\textures\\apple-red.png");
 
 	// all tiles are accesable
 	EmptyTileGenerator &ETG = EmptyTileGenerator::getInstance();
