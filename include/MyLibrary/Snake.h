@@ -12,6 +12,7 @@ public:
 	Snake();
 
 	std::list<sf::Vector2i>::iterator head() { return this->body.begin(); }
+	std::list<sf::Vector2i>::iterator tail() { return prev(this->body.end()); }
 
 	enum class Direction {
 		UP,

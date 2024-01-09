@@ -35,7 +35,10 @@ void Game::update() {
 	sf::Vector2i nextHeadPos = *this->snake->head() + 
 		sf::Vector2i(this->snake->getDirection().x, this->snake->getDirection().y);
 
-	if (!ETG.isEmpty(nextHeadPos) && this->fruits.find(Fruit(nextHeadPos.x, nextHeadPos.y)) == this->fruits.end()) {
+	if (!ETG.isEmpty(nextHeadPos) &&
+		this->fruits.find(Fruit(nextHeadPos.x, nextHeadPos.y)) == this->fruits.end() &&
+		(*this->snake->tail() != nextHeadPos)
+		) {
 		//std::cout << "Numbet of free cels: " << ETG.size() << "\n";
 		this->isGameOver = true;
 		return;
