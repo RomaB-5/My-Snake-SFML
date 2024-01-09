@@ -11,7 +11,7 @@ int main()
     shape.setFillColor(sf::Color::Green);
 
     Game game;
-    while (window.isOpen())
+    while (window.isOpen() && !game.isOver())
     {
         sf::Event event;
         sf::Clock clock; // starts the clock
@@ -49,6 +49,8 @@ int main()
         game.draw(window, game.getFieldSize().x, game.getFieldSize().y);
         window.display();
     }
+
+    std::cout << "Quit the game\n";
 
     return 0;
 }

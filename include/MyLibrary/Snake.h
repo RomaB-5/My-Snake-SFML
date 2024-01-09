@@ -29,9 +29,8 @@ public:
 
 	void draw(sf::RenderWindow&, uint16_t, uint16_t);
 
-
-
 	void setDirection(Snake::Direction direction);
+	sf::Vector2i getDirection() { return this->direction; }
 
-
+	uint16_t getLength() { return this->body.size(); }
 };

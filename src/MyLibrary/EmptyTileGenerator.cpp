@@ -37,7 +37,7 @@ std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
 }
 
 // adds a new empty tile
-void EmptyTileGenerator::pushNewTile(sf::Vector2u v) {
+void EmptyTileGenerator::pushNewTile(sf::Vector2i v) {
 	this->EmptyTiles.insert(std::pair<uint16_t, uint16_t>(v.x, v.y));
 }
 
@@ -47,7 +47,7 @@ void EmptyTileGenerator::pushNewTile(std::pair<uint16_t, uint16_t> p) {
 
 
 // erases a tile from the set (it is not empty anymore)
-bool EmptyTileGenerator::EraseTile(sf::Vector2u v) {
+bool EmptyTileGenerator::EraseTile(sf::Vector2i v) {
 	auto p = std::pair<uint16_t, uint16_t>(v.x, v.y);
 
 	if (this->EmptyTiles.find(p) == this->EmptyTiles.end()) {
@@ -66,4 +66,13 @@ bool EmptyTileGenerator::EraseTile(std::pair<uint16_t, uint16_t> p) {
 
 	this->EmptyTiles.erase(p);
 	return true;
+}
+
+bool EmptyTileGenerator::isEmpty(sf::Vector2i v) {
+	auto p = std::pair<uint16_t, uint16_t>(v.x, v.y);
+	return (EmptyTileGenerator::getInstance().EmptyTiles.find(p) != EmptyTileGenerator::getInstance().EmptyTiles.end());
+}
+
+int EmptyTileGenerator::size() {
+	return this->EmptyTiles.size();
 }

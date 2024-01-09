@@ -11,15 +11,19 @@ public:
     std::pair<int, int> getEmptyTile();
 
     // adds tile when it becomes empty
-    void pushNewTile(sf::Vector2u);
+    void pushNewTile(sf::Vector2i);
     void pushNewTile(std::pair<uint16_t, uint16_t>);
 
     // erases tile when it is not empty
-    bool EraseTile(sf::Vector2u);
+    bool EraseTile(sf::Vector2i);
     bool EraseTile(std::pair<uint16_t, uint16_t>);
 
     // fills the field at the start of the game
     void setField(uint16_t, uint16_t);
+
+    bool isEmpty(sf::Vector2i);
+
+    int size();
 
 private:
     std::set<std::pair<uint16_t, uint16_t>> EmptyTiles;
