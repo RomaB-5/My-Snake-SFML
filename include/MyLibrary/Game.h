@@ -7,9 +7,12 @@
 #include <SFML/Graphics.hpp>
 
 class Game {
+public:
 	Snake* snake;
-	uint8_t height = 15;
-	uint8_t width = 15;
+
+private:
+	uint8_t height = 5;
+	uint8_t width = 5;
 	uint8_t fruitNum = 3;
 	std::set<Fruit> fruits;
 

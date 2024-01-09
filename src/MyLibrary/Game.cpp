@@ -31,11 +31,13 @@ void Game::draw(sf::RenderWindow &window, int xCells, int yCells) {
 
 void Game::update() {
 	this->snake->move();
+
 	// check if snake is alive
 	if (this->snake->head()->x < 0 || this->snake->head()->x >= this->width ||
 		this->snake->head()->y < 0 || this->snake->head()->y >= this->height) {
 		// TODO: game over
 	}
+
 	// check if ate a fruit
 	auto head = this->snake->head();
 	if (this->fruits.find(Fruit(head->x, head->y)) != this->fruits.end()) {
@@ -45,6 +47,8 @@ void Game::update() {
 		EmptyTileGenerator::getInstance().EraseTile(sf::Vector2u(head->x, head->y));
 		// add new fruit
 		this->fruits.insert(Fruit(EmptyTileGenerator::getInstance().getEmptyTile()));
+		// erase old fruit
+		this->fruits.erase(Fruit(head->x, head->y));
 	}
 
 }

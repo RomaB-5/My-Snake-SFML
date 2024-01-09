@@ -20,7 +20,9 @@ void EmptyTileGenerator::setField(uint16_t n, uint16_t m) {
 std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
 	
 	// TODO: throw an exception
-	if (!EmptyTiles.size());
+	if (!EmptyTiles.size()) {
+		throw std::exception("No empty tiles left");
+	}
 
 	// TODO: use a better random generator 
 	// TODO: make more efficient algorithm

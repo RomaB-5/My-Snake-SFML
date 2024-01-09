@@ -27,10 +27,25 @@ int main()
                 sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
                 window.setView(sf::View(visibleArea));
             }
+
+            else if (event.type == sf::Event::KeyPressed)
+            {
+				if (event.key.code == sf::Keyboard::Escape)
+					window.close();
+				else if (event.key.code == sf::Keyboard::Up)
+					game.snake->setDirection(Snake::Direction::UP);
+				else if (event.key.code == sf::Keyboard::Down)
+					game.snake->setDirection(Snake::Direction::DOWN);
+				else if (event.key.code == sf::Keyboard::Left)
+					game.snake->setDirection(Snake::Direction::LEFT);
+				else if (event.key.code == sf::Keyboard::Right)
+					game.snake->setDirection(Snake::Direction::RIGHT);
+                game.update();
+			}
         }
 
         window.clear();
-        // TODO: game update
+        //game.update();
         game.draw(window, game.getFieldSize().x, game.getFieldSize().y);
         window.display();
     }

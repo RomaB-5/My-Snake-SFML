@@ -11,11 +11,41 @@ Snake::Snake() {
 	this->body.push_back(sf::Vector2i(p.first, p.second));
 }
 
+void Snake::setDirection(Snake::Direction direction) {
+	switch (direction) {
+	case Snake::Direction::UP:
+		if (this->direction.y != 1) {
+			this->direction.x = 0;
+			this->direction.y = -1;
+		}
+		break;
+	case Snake::Direction::DOWN:
+		if (this->direction.y != -1) {
+			this->direction.x = 0;
+			this->direction.y = 1;
+		}
+		break;
+	case Snake::Direction::LEFT:
+		if (this->direction.x != 1) {
+			this->direction.x = -1;
+			this->direction.y = 0;
+		}
+		break;
+	case Snake::Direction::RIGHT:
+		if (this->direction.x != -1) {
+			this->direction.x = 1;
+			this->direction.y = 0;
+		}
+		break;
+	}
+
+}
+
 void Snake::grow() {
 	// two snake segments are at the same position for a moment
 	this->body.push_back(sf::Vector2i(
-		this->body.end()->x,
-		this->body.end()->y
+		prev(this->body.end())->x,
+		prev(this->body.end())->y
 	));
 	
 }
@@ -26,19 +56,20 @@ void Snake::move() {
 
 	// free the previous tale tile and add it to the empty tiles set
 	if ( ( this->body.size() > 1 && 
-		*this->body.end() != *prev(this->body.end()) ) || this->body.size() == 1) {
+		*prev(this->body.end()) != *prev(prev(this->body.end())) ) || this->body.size() == 1) {
 
 		EmptyTileGenerator::getInstance().pushNewTile(
 			sf::Vector2u(
-				this->body.end()->x,
-				this->body.end()->y
+				prev(this->body.end())->x,
+				prev(this->body.end())->y
 			)
 		);
 	}
 
 
+
 	// body movement
-	for (auto it = next(this->body.begin()); it != this->body.end(); it++) {
+	for (auto it = prev(this->body.end()); it != this->body.begin(); it--) {
 		it->x = (prev(it)->x);
 		it->y = (prev(it)->y);
 	}

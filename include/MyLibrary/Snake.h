@@ -13,6 +13,13 @@ public:
 
 	std::list<sf::Vector2i>::iterator head() { return this->body.begin(); }
 
+	enum class Direction {
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT
+	};
+
 	// increases snake size by one 
 	void grow(void);
 	
@@ -21,4 +28,10 @@ public:
 	void move(void);
 
 	void draw(sf::RenderWindow&, uint16_t, uint16_t);
+
+
+
+	void setDirection(Snake::Direction direction);
+
+
 };
