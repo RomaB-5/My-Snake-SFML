@@ -30,6 +30,7 @@ int main()
         }
 
         window.clear();
+        // TODO: game update
         game.draw(window, game.getFieldSize().x, game.getFieldSize().y);
         window.display();
     }
