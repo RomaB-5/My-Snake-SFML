@@ -1,6 +1,7 @@
 #include "../../include/MyLibrary/Snake.h"
 #include <algorithm>
 #include "../../include/MyLibrary/TextureManager.h"
+#include "../../include/util/SpriteNormalizer.h"
 
 Snake::Snake() {
 	// randomly spawn the head on a field
@@ -31,19 +32,18 @@ void Snake::move() {
 	this->head()->y = (this->head()->y + dy);
 }
 
-void Snake::draw(sf::RenderWindow& window, uint16_t n, uint16_t m) {
+void Snake::draw(sf::RenderWindow& window, uint16_t xCells, uint16_t yCells) {
 	// should be loaded in Game constructor ?
 	TextureManager& textureManager = TextureManager::getInstance();
-	textureManager.loadTexture("snake-green", "assets/textures/snake-green.png");
 
 	for (auto cell : body) {
+		// TODO: normalize sprite size in an external function?
 		sf::Sprite sprite;
 		sprite.setTexture(textureManager.getTexture("snake-green"));
-		sprite.setPosition(cell.x / (1. * n) * window.getSize().x, cell.y / (1. * m) * window.getSize().y);
+		sprite.setPosition(cell.x / (1. * xCells) * window.getSize().x, cell.y / (1. * yCells) * window.getSize().y);
 		
-		auto xScale = sprite.getGlobalBounds().width / (window.getSize().x / n);
-		auto yScale = sprite.getGlobalBounds().height / (window.getSize().y / m);
-		sprite.setScale(xScale, yScale);
+		SpriteNormalizer::normalize(sprite, window, xCells, yCells);
+
 		window.draw(sprite);
 	}
 

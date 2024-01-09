@@ -16,6 +16,6 @@ bool TextureManager::loadTexture(const std::string& textureName, const std::stri
 
 sf::Texture& TextureManager::getTexture(const std::string& textureName) {
     // If the texture exists in the map, return a reference to it
-    // Otherwise, return a placeholder texture (you can handle this differently based on your needs)
+    // Otherwise, return a placeholder texture 
     return textures.at(textureName);
 }

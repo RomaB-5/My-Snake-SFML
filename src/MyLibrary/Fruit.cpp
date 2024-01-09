@@ -1,5 +1,7 @@
 #include "../../include/MyLibrary/Fruit.h"
+#include "../../include/util/SpriteNormalizer.h"
 
+// constructor
 Fruit::Fruit(int x, int y) {
 	this->setPosition(std::pair<int, int>(x, y));
 }
@@ -16,20 +18,14 @@ void Fruit::draw(sf::RenderWindow &window, int xCells, int yCells) {
 	auto windowWidth = window.getSize().x;
 	auto windowHeight = window.getSize().y;
 
-	sf::FloatRect visibleArea(0, 0, windowWidth, windowHeight);
-	window.setView(sf::View(visibleArea));
+	//sf::FloatRect visibleArea(0, 0, windowWidth, windowHeight);
+	//window.setView(sf::View(visibleArea));
 
 	sprite.setPosition(sf::Vector2f(
 		1. * this->v.x * windowWidth / xCells, 1. * this->v.y * windowHeight / yCells
 	));
 
-	auto currentWidth = sprite.getGlobalBounds().getSize().x;
-	auto currentHeight = sprite.getGlobalBounds().getSize().y;
-
-	auto scaleX = (1. * windowWidth / xCells) / currentWidth;
-	auto scaleY = (1. * windowHeight / yCells) / currentHeight;
-
-	sprite.setScale(scaleX, scaleY);
+	SpriteNormalizer::normalize(sprite, window, xCells, yCells);
 
 	window.draw(sprite);
 }

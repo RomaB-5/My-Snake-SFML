@@ -7,6 +7,7 @@ EmptyTileGenerator& EmptyTileGenerator::getInstance() {
 	return instance;
 }
 
+// sets the empty field at the beginning of the game
 void EmptyTileGenerator::setField(uint16_t n, uint16_t m) {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
@@ -14,10 +15,15 @@ void EmptyTileGenerator::setField(uint16_t n, uint16_t m) {
 		}
 	}
 }
-std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
 
+// returns a random empty tile
+std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
+	
+	// TODO: throw an exception
 	if (!EmptyTiles.size());
 
+	// TODO: use a better random generator 
+	// TODO: make more efficient algorithm
 	uint16_t offset = std::rand() % this->EmptyTiles.size();
 	auto it = this->EmptyTiles.begin();
 	std::advance(it, offset);
@@ -28,6 +34,7 @@ std::pair<int, int> EmptyTileGenerator::getEmptyTile() {
 	return res;
 }
 
+// adds a new empty tile
 void EmptyTileGenerator::pushNewTile(sf::Vector2u v) {
 	this->EmptyTiles.insert(std::pair<uint16_t, uint16_t>(v.x, v.y));
 }
@@ -36,6 +43,8 @@ void EmptyTileGenerator::pushNewTile(std::pair<uint16_t, uint16_t> p) {
 	this->EmptyTiles.insert(p);
 }
 
+
+// erases a tile from the set (it is not empty anymore)
 bool EmptyTileGenerator::EraseTile(sf::Vector2u v) {
 	auto p = std::pair<uint16_t, uint16_t>(v.x, v.y);
 

@@ -16,7 +16,8 @@ int main()
         sf::Event event;
         sf::Clock clock; // starts the clock
         while (window.pollEvent(event))
-        {
+        {   
+            // check the type of the event...
             if (event.type == sf::Event::Closed)
                 window.close();
 
