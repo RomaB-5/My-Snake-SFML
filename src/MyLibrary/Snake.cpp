@@ -12,7 +12,7 @@ Snake::Snake() {
 }
 
 void Snake::grow() {
-	// two snake segments are at the same position for a monent
+	// two snake segments are at the same position for a moment
 	this->body.push_back(sf::Vector2i(
 		this->body.end()->x,
 		this->body.end()->y
@@ -61,7 +61,7 @@ void Snake::draw(sf::RenderWindow& window, uint16_t xCells, uint16_t yCells) {
 	TextureManager& textureManager = TextureManager::getInstance();
 
 	for (auto cell : body) {
-		// TODO: normalize sprite size in an external function?
+
 		sf::Sprite sprite;
 		sprite.setTexture(textureManager.getTexture("snake-green"));
 		sprite.setPosition(cell.x / (1. * xCells) * window.getSize().x, cell.y / (1. * yCells) * window.getSize().y);

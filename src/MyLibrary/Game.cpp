@@ -30,17 +30,23 @@ void Game::draw(sf::RenderWindow &window, int xCells, int yCells) {
 }
 
 void Game::update() {
-	// snake.move()
+	this->snake->move();
 	// check if snake is alive
+	if (this->snake->head()->x < 0 || this->snake->head()->x >= this->width ||
+		this->snake->head()->y < 0 || this->snake->head()->y >= this->height) {
+		// TODO: game over
+	}
 	// check if ate a fruit
 	auto head = this->snake->head();
 	if (this->fruits.find(Fruit(head->x, head->y)) != this->fruits.end()) {
 		// snake grows
+		snake->grow();
 		// remove fruit from set
+		EmptyTileGenerator::getInstance().EraseTile(sf::Vector2u(head->x, head->y));
 		// add new fruit
+		this->fruits.insert(Fruit(EmptyTileGenerator::getInstance().getEmptyTile()));
 	}
-	// update FruitGenerator info?? 
-	// generate new fruit if necessary
+
 }
 
 sf::Vector2u Game::getFieldSize() {
