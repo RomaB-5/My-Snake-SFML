@@ -11,10 +11,12 @@ int main()
     shape.setFillColor(sf::Color::Green);
 
     Game game;
+    sf::Event event;
+    sf::Clock clock; // starts the clock
+
     while (window.isOpen() && !game.isOver())
     {
-        sf::Event event;
-        sf::Clock clock; // starts the clock
+
         while (window.pollEvent(event))
         {   
             // check the type of the event...
@@ -41,11 +43,19 @@ int main()
 				else if (event.key.code == sf::Keyboard::Right)
 					game.snake->setDirection(Snake::Direction::RIGHT);
                 game.update();
+                clock.restart();
 			}
         }
 
         window.clear();
-        //game.update();
+
+        if (clock.getElapsedTime().asSeconds() > 0.5f)
+		{
+			game.update();
+			clock.restart();
+            std::cout<<"update\n";
+		}
+
         game.draw(window, game.getFieldSize().x, game.getFieldSize().y);
 
         window.display();
