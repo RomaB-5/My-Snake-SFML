@@ -27,6 +27,25 @@ void Game::draw(sf::RenderWindow &window, int xCells, int yCells) {
 	}
 
 	snake->draw(window, xCells, yCells);
+	// draw score text
+	sf::Font font;
+	if (!font.loadFromFile("D:\\Університет\\SFML\\My-Snake-SFML\\assets\\fonts\\Arial-BoldMT.ttf"))
+	{
+		std::cout << "Error loading font\n";
+	}
+
+	sf::Text text;
+	text.setFont(font);
+	text.setString("Score: " + std::to_string(this->snake->getLength()) + " / " 
+		+ std::to_string(this->width * this->height));
+	text.setCharacterSize(24);
+	text.setFillColor(sf::Color::White);
+	//text.setStyle(sf::Text::Bold);
+	text.setPosition(0, 0);
+	window.draw(text);
+
+
+
 }
 
 void Game::update() {

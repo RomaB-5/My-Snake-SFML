@@ -11,8 +11,8 @@ public:
 	Snake* snake;
 
 private:
-	uint8_t height = 50;
-	uint8_t width = 50;
+	uint8_t height = 10;
+	uint8_t width = 10;
 	uint8_t fruitNum = 1;
 	std::set<Fruit> fruits;
 	bool isGameOver = false;

@@ -47,6 +47,7 @@ int main()
         window.clear();
         //game.update();
         game.draw(window, game.getFieldSize().x, game.getFieldSize().y);
+
         window.display();
     }
 
