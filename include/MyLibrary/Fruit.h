@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <utility>
 #include "TextureManager.h"
+#include "SpriteManager.h"
 
 class Fruit {
 	sf::Vector2u v;

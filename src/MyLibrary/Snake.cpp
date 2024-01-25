@@ -90,15 +90,15 @@ void Snake::move() {
 
 void Snake::draw(sf::RenderWindow& window, uint16_t xCells, uint16_t yCells) {
 	
-	TextureManager& textureManager = TextureManager::getInstance();
+	sf::Sprite sprite;
+	SpriteManager::getInstance().getSprite("snake-green", sprite);
+	SpriteNormalizer::normalize(sprite, window, xCells, yCells);
 
 	for (auto cell = next(body.begin()); cell != body.end(); cell++) {
 
-		sf::Sprite sprite;
-		sprite.setTexture(textureManager.getTexture("snake-green"));
 		sprite.setPosition(cell->x / (1. * xCells) * window.getSize().x, cell->y / (1. * yCells) * window.getSize().y);
 		
-		SpriteNormalizer::normalize(sprite, window, xCells, yCells);
+		
 
 		window.draw(sprite);
 	}
@@ -106,7 +106,7 @@ void Snake::draw(sf::RenderWindow& window, uint16_t xCells, uint16_t yCells) {
 	// draw head
 	sf::Sprite headSprite;
 	auto head = this->head();
-	headSprite.setTexture(textureManager.getTexture("snake-yellow-head"));
+	SpriteManager::getInstance().getSprite("snake-yellow-head", headSprite);
 	headSprite.setPosition(head->x / (1. * xCells) * window.getSize().x, head->y / (1. * yCells) * window.getSize().y);
 	SpriteNormalizer::normalize(headSprite, window, xCells, yCells);
 	window.draw(headSprite);

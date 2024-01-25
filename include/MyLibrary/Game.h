@@ -4,6 +4,7 @@
 #include "Fruit.h"
 #include "EmptyTileGenerator.h"
 #include "TextureManager.h"
+#include "SpriteManager.h"
 #include <SFML/Graphics.hpp>
 
 class Game {

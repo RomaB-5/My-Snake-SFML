@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 #include "EmptyTileGenerator.h"
+#include "SpriteManager.h"
 
 class Snake {
 private:

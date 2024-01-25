@@ -8,6 +8,11 @@ Game::Game() {
 	TextureManager::getInstance().loadTexture("fruit", "assets/textures/apple-red.png");
 	TextureManager::getInstance().loadTexture("snake-green", "assets/textures/snake-green.png");
 	TextureManager::getInstance().loadTexture("snake-yellow-head", "assets/textures/snake-yellow-head.png");
+	//
+	SpriteManager::getInstance().addSprite("fruit", "fruit");
+	SpriteManager::getInstance().addSprite("snake-green", "snake-green");
+	SpriteManager::getInstance().addSprite("snake-yellow-head", "snake-yellow-head");
+	
 	// all tiles are accesable
 	EmptyTileGenerator &ETG = EmptyTileGenerator::getInstance();
 	ETG.setField(this->width, this->height);

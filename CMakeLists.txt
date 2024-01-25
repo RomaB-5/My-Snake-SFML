@@ -19,7 +19,7 @@ add_custom_target(copy_resources ALL
 
 # add_dependencies(RoE copy_resources)
 
-add_executable(CMakeSFMLProject src/main.cpp "include/MyLibrary/Snake.h"  "src/MyLibrary/Snake.cpp" "include/MyLibrary/Game.h" "src/MyLibrary/Game.cpp"  "include/MyLibrary/TextureManager.h" "src/MyLibrary/TextureManager.cpp" "include/MyLibrary/EmptyTileGenerator.h" "src/MyLibrary/EmptyTileGenerator.cpp" "include/MyLibrary/Fruit.h" "src/MyLibrary/Fruit.cpp" "include/util/SpriteNormalizer.h" "src/util/NormalizeSprite.cpp")
+add_executable(CMakeSFMLProject src/main.cpp "include/MyLibrary/Snake.h"  "src/MyLibrary/Snake.cpp" "include/MyLibrary/Game.h" "src/MyLibrary/Game.cpp"  "include/MyLibrary/TextureManager.h" "src/MyLibrary/TextureManager.cpp" "include/MyLibrary/EmptyTileGenerator.h" "src/MyLibrary/EmptyTileGenerator.cpp" "include/MyLibrary/Fruit.h" "src/MyLibrary/Fruit.cpp" "include/util/SpriteNormalizer.h" "src/util/NormalizeSprite.cpp" "include/MyLibrary/SpriteManager.h" "src/MyLibrary/SpriteManager.cpp")
 
 
 target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)

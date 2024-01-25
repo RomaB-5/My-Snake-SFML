@@ -13,7 +13,7 @@ Fruit::Fruit(std::pair<int,int> p) {
 void Fruit::draw(sf::RenderWindow &window, int xCells, int yCells) {
 
 	sf::Sprite sprite;
-	sprite.setTexture(TextureManager::getInstance().getTexture("fruit"));
+	SpriteManager::getInstance().getSprite("fruit", sprite);
 
 	auto windowWidth = window.getSize().x;
 	auto windowHeight = window.getSize().y;
