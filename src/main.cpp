@@ -42,18 +42,18 @@ int main()
 					game.snake->setDirection(Snake::Direction::LEFT);
 				else if (event.key.code == sf::Keyboard::Right)
 					game.snake->setDirection(Snake::Direction::RIGHT);
-                game.update();
-                clock.restart();
+                //game.update();
+                //clock.restart();
 			}
         }
 
         window.clear();
 
-        if (clock.getElapsedTime().asSeconds() > 0.5f)
+        if (clock.getElapsedTime().asSeconds() > 0.2f)
 		{
 			game.update();
 			clock.restart();
-            std::cout<<"update\n";
+
 		}
 
         game.draw(window, game.getFieldSize().x, game.getFieldSize().y);
@@ -62,6 +62,6 @@ int main()
     }
 
     std::cout << "Quit the game\n";
-
+    system("pause");
     return 0;
 }

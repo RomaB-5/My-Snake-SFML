@@ -5,9 +5,6 @@
 // initializes the game
 Game::Game() {
 
-	auto path = std::filesystem::current_path().string(); //getting path
-	std::cout << path;
-	//system("pause");
 	TextureManager::getInstance().loadTexture("fruit", "assets/textures/apple-red.png");
 	TextureManager::getInstance().loadTexture("snake-green", "assets/textures/snake-green.png");
 	TextureManager::getInstance().loadTexture("snake-yellow-head", "assets/textures/snake-yellow-head.png");
@@ -23,6 +20,15 @@ Game::Game() {
 		this->fruits.insert(Fruit(ETG.getEmptyTile()));
 	}
 	std::cout << "Number of free cells: " << ETG.size() << "\n";
+
+	
+	if (!Game::mainFont.loadFromFile("./assets/fonts/Arial-BoldMT.ttf"))
+	{
+		std::cout << "Error loading font\n";
+	}
+	else {
+		std::cout << "Font loaded\n";
+	}
 }
 
 void Game::draw(sf::RenderWindow &window, int xCells, int yCells) {
@@ -32,18 +38,9 @@ void Game::draw(sf::RenderWindow &window, int xCells, int yCells) {
 
 	snake->draw(window, xCells, yCells);
 	// draw score text
-	sf::Font font;
-
-	
-	if (!font.loadFromFile("./assets/fonts/Arial-BoldMT.ttf"))
-	{
-		std::cout << "Error loading font\n";
-
-		
-	}
 
 	sf::Text text;
-	text.setFont(font);
+	text.setFont(mainFont);
 	text.setString("Score: " + std::to_string(this->snake->getLength()) + " / " 
 		+ std::to_string(this->width * this->height));
 	text.setCharacterSize(24);

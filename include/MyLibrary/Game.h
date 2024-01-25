@@ -16,6 +16,7 @@ private:
 	uint8_t fruitNum = 1;
 	std::set<Fruit> fruits;
 	bool isGameOver = false;
+	sf::Font mainFont;
 
 public:
 	Game();
